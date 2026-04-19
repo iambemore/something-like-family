@@ -1110,9 +1110,6 @@
   .mood-page {
     min-height: 1056px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     overflow: hidden;
   }
   .mood-bg {
@@ -1176,9 +1173,12 @@
     background: linear-gradient(180deg, rgba(8,6,4,0.9) 0%, transparent 100%);
   }
   .mood-content {
-    position: relative;
+    position: absolute;
+    top: 18%;
+    left: 0;
+    right: 0;
     z-index: 2;
-    padding: 0 72px 80px;
+    padding: 0 72px;
   }
   .mood-label {
     font-size: 0.7rem;
@@ -1201,12 +1201,12 @@
   }
   .mood-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 5.2rem;
+    font-size: 7rem;
     font-weight: 900;
     color: var(--ivory);
     line-height: 0.95;
-    margin-bottom: 40px;
-    max-width: 580px;
+    margin-bottom: 56px;
+    max-width: 680px;
   }
   .mood-headline em {
     color: var(--gold);
@@ -1216,7 +1216,7 @@
     display: flex;
     gap: 0;
     border-top: 1px solid rgba(201,168,76,0.2);
-    padding-top: 32px;
+    padding-top: 40px;
     margin-bottom: 0;
   }
   .mood-descriptor {
@@ -1241,19 +1241,19 @@
   }
   .mood-desc-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--ivory-2);
-    line-height: 1.5;
+    line-height: 1.6;
   }
   /* Decorative center element */
   .mood-center-art {
     position: absolute;
-    top: 54%;
+    top: 36%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 480px;
-    height: 480px;
+    width: 560px;
+    height: 560px;
     border: 1px solid rgba(201,168,76,0.06);
     border-radius: 50%;
     display: flex;
@@ -1508,6 +1508,12 @@
         <div class="mood-desc-text">These are real people with real mortgages, real disagreements, real cultural pressures. The cameras earn their access because the access was already built.</div>
       </div>
     </div>
+  </div>
+
+  <!-- Bottom atmospheric quote -->
+  <div style="position: absolute; bottom: 100px; left: 72px; right: 72px; text-align: center; z-index: 2;">
+    <div style="width: 40px; height: 1px; background: rgba(201,168,76,0.3); margin: 0 auto 24px;"></div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: rgba(245,239,224,0.25); line-height: 1.6; max-width: 540px; margin: 0 auto;">"The kind of community you spend your whole life trying to build — and are terrified to risk."</div>
   </div>
 
   <div class="watermark" style="color: rgba(122,112,96,0.4);">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
