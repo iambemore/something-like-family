@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something Like Family — Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:         #0C0A08;
+    --bg-2:       #131008;
+    --bg-card:    #161210;
+    --gold:       #C9A84C;
+    --gold-light: #E8D5A3;
+    --gold-dark:  #8A6E2A;
+    --terra:      #B85A2E;
+    --ivory:      #F5EFE0;
+    --ivory-2:    #C8BCA8;
+    --ivory-3:    #7A7060;
+    --rule:       #2E2820;
+    --rule-2:     #1E1A14;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 10px; }
+
+  body {
+    background: var(--bg);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── PAGE SYSTEM ─────────────────────────────────────────── */
+  .page {
+    width: 816px;
+    min-height: 1056px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  @media print {
+    html { font-size: 10px; }
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      page-break-after: always;
+    }
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+  }
+
+  /* ─── TYPOGRAPHY ──────────────────────────────────────────── */
+  .serif        { font-family: 'Playfair Display', serif; }
+  .cormorant    { font-family: 'Cormorant Garamond', serif; }
+
+  .t-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  .t-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .t-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    font-style: italic;
+  }
+  .t-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .t-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ivory-2);
+    font-size: 0.95rem;
+  }
+  .t-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--gold-light);
+  }
+
+  /* ─── DECORATIVE ELEMENTS ─────────────────────────────────── */
+  .gold-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    display: block;
+  }
+  .gold-rule-full {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    display: block;
+  }
+  .page-num {
+    position: absolute;
+    bottom: 32px;
+    right: 52px;
+    font-size: 0.75rem;
+    color: var(--ivory-3);
+    letter-spacing: 0.15em;
+    font-family: 'Inter', sans-serif;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 32px;
+    left: 52px;
+    font-size: 0.75rem;
+    color: var(--ivory-3);
+    letter-spacing: 0.12em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ─── CORNER ACCENT ───────────────────────────────────────── */
+  .corner-tl {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 32px;
+    height: 32px;
+    border-top: 1px solid var(--gold-dark);
+    border-left: 1px solid var(--gold-dark);
+  }
+  .corner-br {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    width: 32px;
+    height: 32px;
+    border-bottom: 1px solid var(--gold-dark);
+    border-right: 1px solid var(--gold-dark);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE 1 — COVER
+  ═══════════════════════════════════════════════════════════ */
+  .cover {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 44px 72px 80px;
+    position: relative;
+  }
+  .cover-bg-texture {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 85% 20%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 15% 80%, rgba(184,90,46,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-line-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--terra) 50%, transparent 100%);
+  }
+  .cover-eyebrow {
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-size: 8.4rem;
+    margin-bottom: 8px;
+    color: var(--ivory);
+    line-height: 0.92;
+  }
+  .cover-title-line2 {
+    font-size: 8.4rem;
+    color: var(--gold);
+    line-height: 0.92;
+    margin-bottom: 36px;
+  }
+  .cover-tagline {
+    font-size: 2.0rem;
+    color: var(--ivory-2);
+    max-width: 520px;
+    margin-bottom: 56px;
+    line-height: 1.4;
+  }
+  .cover-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 40px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 64px;
+  }
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cover-meta-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-family: 'Inter', sans-serif;
+  }
+  .cover-meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--ivory-2);
+    font-style: italic;
+  }
+  .cover-producer {
+    position: absolute;
+    bottom: 52px;
+    left: 72px;
+    right: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  .cover-producer-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ivory-3);
+  }
+  .cover-producer-co {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--ivory-3);
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+  .cover-year {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--ivory-3);
+    letter-spacing: 0.2em;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     STANDARD INNER PAGE LAYOUT
+  ═══════════════════════════════════════════════════════════ */
+  .inner {
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    min-height: 1056px;
+  }
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .section-header .t-label {
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-header h2 {
+    font-size: 3.6rem;
+    color: var(--ivory);
+    line-height: 1.05;
+  }
+  .section-header p {
+    margin-top: 16px;
+    font-size: 1.0rem;
+    color: var(--ivory-2);
+    line-height: 1.75;
+    max-width: 560px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE 2 — LOGLINE + OVERVIEW
+  ═══════════════════════════════════════════════════════════ */
+  .overview-hero {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    padding: 40px 48px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .overview-hero-quote {
+    font-size: 2.4rem;
+    line-height: 1.35;
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+  }
+  .overview-hero-attr {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .overview-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+  }
+  .overview-cell-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .overview-cell-value {
+    font-size: 1.05rem;
+    color: var(--ivory);
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .overview-body {
+    font-size: 0.95rem;
+    color: var(--ivory-2);
+    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .overview-body strong {
+    color: var(--ivory);
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE 3 — WHY THIS, WHY NOW
+  ═══════════════════════════════════════════════════════════ */
+  .why-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+  }
+  .why-col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--ivory);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .why-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .why-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .why-text {
+    font-size: 0.95rem;
+    color: var(--ivory-2);
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .why-text strong {
+    color: var(--ivory);
+    font-weight: 500;
+  }
+  .why-pull {
+    margin-top: 48px;
+    padding: 36px 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: rgba(201,168,76,0.04);
+  }
+  .why-pull-text {
+    font-size: 2.0rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.4;
+    text-align: center;
+  }
+  .why-proof {
+    margin-top: 40px;
+  }
+  .why-proof-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .proof-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+  }
+  .proof-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .proof-desc {
+    font-size: 0.8rem;
+    color: var(--ivory-3);
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CHARACTER PAGES
+  ═══════════════════════════════════════════════════════════ */
+  .char-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    min-height: 1056px;
+  }
+  .char-sidebar {
+    background: var(--bg-card);
+    border-right: 1px solid var(--rule);
+    padding: 72px 40px 72px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .char-sidebar-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+  .char-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 9rem;
+    font-weight: 900;
+    color: rgba(201,168,76,0.08);
+    line-height: 1;
+    position: absolute;
+    bottom: 80px;
+    left: -8px;
+  }
+  .char-role-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+  }
+  .char-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--ivory);
+    line-height: 1.0;
+    margin-bottom: 16px;
+  }
+  .char-archetype {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .char-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .char-tag {
+    font-size: 0.78rem;
+    color: var(--ivory-3);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .char-tag::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: var(--gold-dark);
+    flex-shrink: 0;
+  }
+  .char-main {
+    padding: 72px 56px 72px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .char-section {
+    margin-bottom: 36px;
+  }
+  .char-section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .char-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .char-section-text {
+    font-size: 0.92rem;
+    color: var(--ivory-2);
+    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .char-section-text strong {
+    color: var(--ivory);
+    font-weight: 500;
+  }
+  .char-tension {
+    background: rgba(201,168,76,0.05);
+    border-left: 2px solid var(--gold);
+    padding: 20px 24px;
+    margin-top: 8px;
+  }
+  .char-tension-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    line-height: 1.5;
+  }
+  .char-arc-bar {
+    margin-top: 8px;
+  }
+  .char-arc-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--ivory-3);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+  }
+  .char-arc-track {
+    height: 2px;
+    background: var(--rule);
+    position: relative;
+  }
+  .char-arc-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE — SEASON ARC
+  ═══════════════════════════════════════════════════════════ */
+  .ep-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+  .ep-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+    position: relative;
+  }
+  .ep-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-dark), transparent);
+  }
+  .ep-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+  }
+  .ep-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ivory);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .ep-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.0rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+  }
+  .ep-body {
+    font-size: 0.82rem;
+    color: var(--ivory-3);
+    line-height: 1.65;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .ep-focus {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule-2);
+    font-size: 0.72rem;
+    color: var(--gold-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE — THEMES
+  ═══════════════════════════════════════════════════════════ */
+  .theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+  .theme-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .theme-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: rgba(201,168,76,0.15);
+    padding: 32px 0 32px 8px;
+    line-height: 1;
+  }
+  .theme-content {
+    padding: 32px 0 32px 24px;
+    border-left: 1px solid var(--rule);
+  }
+  .theme-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ivory);
+    margin-bottom: 8px;
+  }
+  .theme-body {
+    font-size: 0.88rem;
+    color: var(--ivory-3);
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE — COMPETITIVE LANDSCAPE
+  ═══════════════════════════════════════════════════════════ */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+  }
+  .comp-table thead tr {
+    border-bottom: 2px solid var(--gold-dark);
+  }
+  .comp-table th {
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0 16px 16px 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .comp-table td {
+    padding: 18px 16px 18px 0;
+    font-size: 0.85rem;
+    color: var(--ivory-2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  .comp-table td:first-child {
+    font-weight: 500;
+    color: var(--ivory);
+  }
+  .comp-table td .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 4px;
+  }
+  .white-space-box {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid var(--gold-dark);
+    padding: 28px 36px;
+    margin-top: 24px;
+  }
+  .white-space-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+  .white-space-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE — NETWORK TARGETS
+  ═══════════════════════════════════════════════════════════ */
+  .network-tier {
+    margin-bottom: 40px;
+  }
+  .network-tier-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .network-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .network-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 24px 28px;
+    position: relative;
+  }
+  .network-card.primary {
+    border-color: var(--gold-dark);
+  }
+  .network-card.primary::before {
+    content: 'PRIMARY TARGET';
+    position: absolute;
+    top: -1px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 3px 8px;
+    font-family: 'Inter', sans-serif;
+  }
+  .network-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ivory);
+    margin-bottom: 8px;
+  }
+  .network-reason {
+    font-size: 0.82rem;
+    color: var(--ivory-3);
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .network-hook {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule-2);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    line-height: 1.4;
+  }
+  .pitch-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .checklist-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+  }
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--gold-dark);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .check-done {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .check-mark {
+    color: var(--bg);
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+  .checklist-text {
+    font-size: 0.85rem;
+    color: var(--ivory-2);
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .checklist-text strong {
+    color: var(--ivory);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE — ABOUT / EP
+  ═══════════════════════════════════════════════════════════ */
+  .ep-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 1056px;
+  }
+  .ep-left {
+    padding: 72px 48px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+  }
+  .ep-right {
+    padding: 72px 56px 72px 48px;
+    display: flex;
+    flex-direction: column;
+  }
+  .credit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  .credit-item {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 20px;
+  }
+  .credit-show {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.0rem;
+    font-weight: 600;
+    color: var(--ivory);
+    margin-bottom: 4px;
+  }
+  .credit-role {
+    font-size: 0.8rem;
+    color: var(--ivory-3);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+  .credit-note {
+    font-size: 0.78rem;
+    color: var(--gold-dark);
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+  }
+  .talent-block {
+    margin-top: 32px;
+  }
+  .talent-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+  .talent-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .talent-chip {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    color: var(--ivory-2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+  .season2-box {
+    background: rgba(201,168,76,0.04);
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--gold);
+    padding: 28px 32px;
+    margin-top: 32px;
+  }
+  .season2-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+  .season2-body {
+    font-size: 0.85rem;
+    color: var(--ivory-3);
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     BACK COVER
+  ═══════════════════════════════════════════════════════════ */
+  .back-cover {
+    background: var(--bg-card);
+    text-align: center;
+    position: relative;
+    height: 1056px;
+    min-height: 1056px;
+  }
+  .back-cover-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--terra), transparent);
+  }
+  .back-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ivory);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .back-co {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.0rem;
+    font-style: italic;
+    color: var(--ivory-3);
+    margin-bottom: 64px;
+  }
+  .back-title-main {
+    font-size: 6rem;
+    line-height: 0.9;
+    color: var(--ivory);
+    margin-bottom: 8px;
+  }
+  .back-title-gold {
+    font-size: 6rem;
+    line-height: 0.9;
+    color: var(--gold);
+    margin-bottom: 48px;
+  }
+  .back-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+  .back-contact-line {
+    font-size: 0.9rem;
+    color: var(--ivory-2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+  }
+  .back-contact-line a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .back-handle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 8px;
+  }
+  .back-rule {
+    width: 80px;
+    height: 1px;
+    background: var(--gold-dark);
+    margin: 40px auto;
+  }
+  .back-copyright {
+    font-size: 0.72rem;
+    color: var(--ivory-3);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.12em;
+    position: absolute;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     MOOD / WORLD PAGE
+  ═══════════════════════════════════════════════════════════ */
+  .mood-page {
+    min-height: 1056px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .mood-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, #1C1408 0%, #0A0804 40%, #0C0A08 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(201,168,76,0.012) 2px,
+        rgba(201,168,76,0.012) 4px
+      );
+  }
+  .mood-glow-left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 55%;
+    height: 70%;
+    background: radial-gradient(ellipse at 20% 30%, rgba(184,90,46,0.22) 0%, transparent 65%);
+  }
+  .mood-glow-right {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60%;
+    height: 65%;
+    background: radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.16) 0%, transparent 60%);
+  }
+  .mood-glow-center {
+    position: absolute;
+    top: 20%; left: 25%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  }
+  /* Architectural lines — simulates interior space */
+  .mood-lines {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.03) 40%, transparent 80%),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 135px,
+        rgba(201,168,76,0.015) 135px,
+        rgba(201,168,76,0.015) 136px
+      );
+  }
+  /* Vignette overlay */
+  .mood-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(8,6,4,0.75) 100%);
+  }
+  .mood-top-fade {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(8,6,4,0.9) 0%, transparent 100%);
+  }
+  .mood-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 72px 80px;
+  }
+  .mood-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .mood-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .mood-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.2rem;
+    font-weight: 900;
+    color: var(--ivory);
+    line-height: 0.95;
+    margin-bottom: 40px;
+    max-width: 580px;
+  }
+  .mood-headline em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .mood-descriptors {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 32px;
+    margin-bottom: 0;
+  }
+  .mood-descriptor {
+    flex: 1;
+    padding-right: 32px;
+    border-right: 1px solid rgba(201,168,76,0.12);
+    margin-right: 32px;
+  }
+  .mood-descriptor:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .mood-desc-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mood-desc-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ivory-2);
+    line-height: 1.5;
+  }
+  /* Decorative center element */
+  .mood-center-art {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(201,168,76,0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mood-center-art::before {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50%;
+  }
+  .mood-center-art::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  /* Floating text elements */
+  .mood-float-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(201,168,76,0.18);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* ─── CHARACTER PHOTO PLACEHOLDER ────────────────────────── */
+  .char-photo-placeholder {
+    width: 100%;
+    flex: 1;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+  .char-photo-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .char-photo-label {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.35);
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── COVER V2 ENHANCEMENTS ───────────────────────────────── */
+  .cover-noise {
+    position: absolute;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  .cover-grid-lines {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 71px,
+        rgba(201,168,76,0.025) 71px,
+        rgba(201,168,76,0.025) 72px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 107px,
+        rgba(201,168,76,0.018) 107px,
+        rgba(201,168,76,0.018) 108px
+      );
+    pointer-events: none;
+  }
+  .cover-light-leak {
+    position: absolute;
+    top: -100px;
+    right: -60px;
+    width: 500px;
+    height: 600px;
+    background: radial-gradient(ellipse at 70% 20%, rgba(201,168,76,0.12) 0%, rgba(184,90,46,0.06) 35%, transparent 65%);
+    pointer-events: none;
+  }
+  .cover-shadow-pool {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(0deg, rgba(4,3,2,0.85) 0%, transparent 100%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-bg-texture"></div>
+  <div class="cover-grid-lines"></div>
+  <div class="cover-light-leak"></div>
+  <div class="cover-shadow-pool"></div>
+  <div class="cover-noise"></div>
+  <div class="cover-line-top"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="cover-eyebrow">
+    <span class="t-label">An Unscripted Lifestyle Series</span>
+  </div>
+
+  <div class="t-display cover-title">Something</div>
+  <div class="t-display cover-title-line2">Like Family</div>
+
+  <div class="cover-divider"></div>
+
+  <div class="t-pull cover-tagline">
+    "When the people you chose become the family you build —<br>everything gets complicated, beautiful, and real."
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Format</span>
+      <span class="cover-meta-value">Unscripted Docuseries</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Episodes</span>
+      <span class="cover-meta-value">8 × 45–60 min</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Season</span>
+      <span class="cover-meta-value">Development · 2026</span>
+    </div>
+  </div>
+
+  <div class="cover-producer">
+    <div>
+      <div class="cover-producer-co">Brandon Morson · Be More Creative LLC</div>
+    </div>
+    <div class="cover-year">CONFIDENTIAL &amp; PROPRIETARY · 2026</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 2 — LOGLINE + SERIES OVERVIEW
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header">
+      <span class="t-label">The Concept</span>
+      <h2 class="t-title">Series Overview</h2>
+    </div>
+
+    <div class="overview-hero">
+      <div class="overview-hero-quote">
+        In an exclusive, tight-knit community of affluent, culturally diverse friends, a gay married couple's decision to have another child through surrogacy — with one of their closest friends — sets off a chain of emotional, cultural, and relational reckonings that will redefine what family actually means.
+      </div>
+      <div class="overview-hero-attr">Logline</div>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-cell">
+        <div class="overview-cell-label">Format</div>
+        <div class="overview-cell-value">Unscripted Lifestyle / Docuseries</div>
+      </div>
+      <div class="overview-cell">
+        <div class="overview-cell-label">Episodes</div>
+        <div class="overview-cell-value">8 × 45–60 minutes, Season 1</div>
+      </div>
+      <div class="overview-cell">
+        <div class="overview-cell-label">Tone</div>
+        <div class="overview-cell-value"><em>Succession</em> intimacy meets <em>Real Housewives</em> access — without the manufactured chaos</div>
+      </div>
+      <div class="overview-cell">
+        <div class="overview-cell-label">Target Networks</div>
+        <div class="overview-cell-value">Bravo · HBO Max · OWN · Netflix · Peacock</div>
+      </div>
+    </div>
+
+    <div class="overview-body">
+      <strong>Something Like Family</strong> is a premium, emotionally driven reality series that lives at the intersection of modern love, chosen family, and the real complexity of building a life on your own terms.<br><br>
+      At its center: <strong>Christian &amp; Curtis</strong> — a gay married couple whose opposing personalities create the show's fundamental tension. Christian leads with his heart. Curtis leads with his ledger. Together, they're deciding whether to have another child — and whether their closest friend, <strong>Moloko</strong>, is the person to carry it.<br><br>
+      Running through every frame is <strong>Haile</strong> — perceptive, strategic, and grounded — who becomes the quiet force the group keeps returning to when decisions get too real.<br><br>
+      This is not a show about drama. It's a show about <strong>decisions</strong>. And the relationships that survive them.
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">02</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 3 — THE WORLD (MOOD PAGE)
+═══════════════════════════════════════════════════════════ -->
+<div class="page mood-page">
+  <div class="mood-bg"></div>
+  <div class="mood-glow-left"></div>
+  <div class="mood-glow-right"></div>
+  <div class="mood-glow-center"></div>
+  <div class="mood-lines"></div>
+  <div class="mood-top-fade"></div>
+  <div class="mood-vignette"></div>
+
+  <!-- Center decorative element -->
+  <div class="mood-center-art"></div>
+
+  <!-- Floating atmospheric text -->
+  <div class="mood-float-text" style="top: 18%; left: 8%; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; font-family: 'Inter', sans-serif; font-weight: 300; color: rgba(201,168,76,0.14);">LOS ANGELES</div>
+  <div class="mood-float-text" style="top: 22%; right: 10%; font-size: 1.8rem;">chosen</div>
+  <div class="mood-float-text" style="top: 38%; left: 5%; font-size: 2.4rem;">family</div>
+  <div class="mood-float-text" style="bottom: 38%; right: 8%; font-size: 1.4rem;">decisions</div>
+  <div class="mood-float-text" style="top: 55%; left: 12%; font-size: 1.1rem;">ubuntu</div>
+  <div class="mood-float-text" style="top: 14%; right: 30%; font-size: 0.9rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; font-family: 'Inter', sans-serif; color: rgba(201,168,76,0.08);">CONFIDENTIAL · DEVELOPMENT 2026</div>
+
+  <div class="mood-content">
+    <div class="mood-label">The World</div>
+    <div class="mood-headline">A private life<br>in a <em>public</em> city.</div>
+    <div class="mood-descriptors">
+      <div class="mood-descriptor">
+        <div class="mood-desc-label">Setting</div>
+        <div class="mood-desc-text">An exclusive, upscale community in Los Angeles — curated homes, pool settings, private dinners. The kind of life that looks effortless from the outside.</div>
+      </div>
+      <div class="mood-descriptor">
+        <div class="mood-desc-label">Visual Language</div>
+        <div class="mood-desc-text">Wide-open interiors. Natural light. Golden-hour outdoor conversations. Confessionals that feel like therapy, not testimony.</div>
+      </div>
+      <div class="mood-descriptor">
+        <div class="mood-desc-label">The Tension</div>
+        <div class="mood-desc-text">These are real people with real mortgages, real disagreements, real cultural pressures. The cameras earn their access because the access was already built.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watermark" style="color: rgba(122,112,96,0.4);">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+  <div class="page-num" style="color: rgba(122,112,96,0.4);">03</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 4 (was 3) — WHY THIS. WHY NOW.
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header">
+      <span class="t-label">Market Positioning</span>
+      <h2 class="t-title">Why This. Why Now.</h2>
+    </div>
+
+    <div class="why-columns">
+      <div>
+        <div class="why-col-title">The Gap in the Market</div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text">No premium reality series centers a gay married couple navigating surrogacy with their multicultural friend group</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text">Surrogacy storylines exist in scripted television — but never in US unscripted, with real stakes, in real time</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text">The multicultural affluent lifestyle space is underserved at the premium streaming tier</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text">Gen Z &amp; Millennial audiences actively seek chosen family narratives over traditional biological family structures</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text">South African cultural perspectives on family and ubuntu have never been explored in American lifestyle reality</div></div>
+      </div>
+      <div>
+        <div class="why-col-title">The Cultural Moment</div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>LGBTQ+ family building</strong> is a mainstream cultural conversation — this show enters it with depth no format has managed</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Authenticity over manufactured drama</strong> — audiences have migrated. Premium unscripted now means emotional intelligence, not chaos</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Surrogacy &amp; reproductive rights</strong> are the cultural conversation of 2024–2026, without being overtly political</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Queer Eye</strong> ends after Season 10 — a proven, loyal audience of millions is now looking for its replacement</div></div>
+        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Bravo's Valley: Persian Style</strong> (Jan 2026) signals active multicultural lifestyle format expansion</div></div>
+      </div>
+    </div>
+
+    <div class="why-pull">
+      <div class="why-pull-text">"No US unscripted series has ever centered a gay couple going through surrogacy in real time. The format doesn't exist. The audience does."</div>
+    </div>
+
+    <div class="why-proof">
+      <div class="why-proof-title">Live Market Signals · 2025–2026</div>
+      <div class="proof-grid">
+        <div class="proof-cell">
+          <div class="proof-stat">3.1M</div>
+          <div class="proof-desc">Cross-platform viewers · The Valley S2 debut · 14-year Bravo record · Life milestone format works</div>
+        </div>
+        <div class="proof-cell">
+          <div class="proof-stat">2M</div>
+          <div class="proof-desc">Viewers in 7 days · Summer House S10 · Record high · Fans demanding more diverse casting</div>
+        </div>
+        <div class="proof-cell">
+          <div class="proof-stat">S2</div>
+          <div class="proof-desc">Netflix renewed The Boyfriend (gay male lifestyle reality, Japan) · Global appetite confirmed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">03</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 4 — CHARACTER: CHRISTIAN
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="char-page">
+    <div class="char-sidebar">
+      <div class="char-sidebar-accent" style="background: linear-gradient(90deg, #B85A2E, transparent);"></div>
+      <div>
+        <div class="char-role-tag">The Heart</div>
+        <div class="char-name">Christian</div>
+        <div class="char-archetype">"He wants a big life, loudly."</div>
+        <div class="char-tags">
+          <div class="char-tag">Outgoing · Expressive · Spontaneous</div>
+          <div class="char-tag">Primary Lead</div>
+          <div class="char-tag">The Social Architect</div>
+          <div class="char-tag">Drives the surrogacy ask</div>
+        </div>
+      </div>
+      <!-- Photo placeholder — warm terracotta energy -->
+      <div class="char-photo-placeholder">
+        <div class="char-photo-inner" style="background: linear-gradient(160deg, #1A0E08 0%, #2A1508 40%, #1C1008 70%, #0C0804 100%);">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 45% 35%, rgba(184,90,46,0.28) 0%, transparent 65%);"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 60% 70%, rgba(201,168,76,0.1) 0%, transparent 60%);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(0deg,rgba(8,4,2,0.8) 0%,transparent 100%);"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90px;height:90px;border:1px solid rgba(184,90,46,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:60px;height:60px;border:1px solid rgba(184,90,46,0.12);border-radius:50%;"></div>
+          </div>
+        </div>
+        <div class="char-photo-label">Cast Photo · TBD</div>
+      </div>
+      <div class="char-number">01</div>
+    </div>
+
+    <div class="char-main">
+      <div class="char-section">
+        <div class="char-section-label">Who He Is</div>
+        <div class="char-section-text">
+          Christian is the person who makes the group feel like a group. He texts first. He plans the dinners. He remembers everyone's birthdays. His warmth is not performance — it's constitution. In his family, love was loud, food was always on the table, and you showed up for people. He has built his adult life on the same principle.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">What Drives Him</div>
+        <div class="char-section-text">
+          Christian's desire to have another child is not frivolous. It comes from a specific understanding of what family gave him — and what he wants to give forward. He grew up with a big, loud, present family, and the absence of that same scale in his own household is a quiet ache he doesn't always name. <strong>Surrogacy, to Christian, is not a workaround — it's an act of love.</strong>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">His Tension</div>
+        <div class="char-tension">
+          <div class="char-tension-text">"His emotional leadership style sometimes outpaces his partner's need for process — and the gap between them becomes visible under pressure."</div>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Relationships Within the Group</div>
+        <div class="char-section-text">
+          <strong>With Curtis:</strong> He knows Curtis loves him. He also knows that Curtis processes everything — including love — through logic and structure. Christian has learned to interpret Curtis's caution as care. Most of the time.<br><br>
+          <strong>With Moloko:</strong> The kind of friendship built on direct honesty. She'll tell him when he's wrong. He'll tell her when she's being stubborn. The surrogacy conversation is the most significant test of that honesty.<br><br>
+          <strong>With Haile:</strong> Christian trusts Haile's read on situations. He brings her things he doesn't bring to Curtis — not because he's hiding them, but because sometimes you need a different kind of perspective.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Season 1 Arc</div>
+        <div class="char-arc-bar">
+          <div class="char-arc-label"><span>Episode 1: Leading with desire</span><span>Episode 8: Leading with understanding</span></div>
+          <div class="char-arc-track"><div class="char-arc-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="char-section-text" style="margin-top: 12px;">
+          Christian starts the season leading with desire and ends it with understanding. He doesn't get everything he wants on the timeline he wanted it — but he gets something more valuable: clarity about who his partner is and what their friendship infrastructure can actually hold.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+  <div class="page-num">04</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 5 — CHARACTER: CURTIS
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="char-page">
+    <div class="char-sidebar">
+      <div class="char-sidebar-accent" style="background: linear-gradient(90deg, #C9A84C, transparent);"></div>
+      <div>
+        <div class="char-role-tag" style="background: var(--gold-dark);">The Architect</div>
+        <div class="char-name">Curtis</div>
+        <div class="char-archetype">"He built what they have — and he's not willing to risk it."</div>
+        <div class="char-tags">
+          <div class="char-tag">Reserved · Structured · Precise</div>
+          <div class="char-tag">Primary Lead</div>
+          <div class="char-tag">The Planner</div>
+          <div class="char-tag">The show's counterweight</div>
+        </div>
+      </div>
+      <!-- Photo placeholder — cool gold precision energy -->
+      <div class="char-photo-placeholder">
+        <div class="char-photo-inner" style="background: linear-gradient(160deg, #100E08 0%, #1A1608 40%, #141008 70%, #0A0804 100%);">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 70% at 50% 30%, rgba(201,168,76,0.18) 0%, transparent 60%);"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 40% 50% at 40% 75%, rgba(138,110,42,0.1) 0%, transparent 60%);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(0deg,rgba(8,6,2,0.8) 0%,transparent 100%);"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:1px solid rgba(201,168,76,0.18);display:flex;align-items:center;justify-content:center;">
+            <div style="width:52px;height:52px;border:1px solid rgba(201,168,76,0.1);"></div>
+          </div>
+        </div>
+        <div class="char-photo-label">Cast Photo · TBD</div>
+      </div>
+      <div class="char-number">02</div>
+    </div>
+
+    <div class="char-main">
+      <div class="char-section">
+        <div class="char-section-label">Who He Is</div>
+        <div class="char-section-text">
+          Curtis is not cold — he's precise. There is a difference, and the show's job is to reveal that difference. Curtis has built their life through intentionality. Every asset, every relationship, every commitment was stress-tested before it was made. This isn't fear — it's a philosophy. He's watched people he loves make decisions from emotion and pay for it for years.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">What Drives Him</div>
+        <div class="char-section-text">
+          <strong>Curtis's love for Christian is complete and consistent.</strong> But he expresses it through action, not declaration. He protects Christian from the things Christian doesn't see coming. He builds the structures that let Christian be free. The tension between Christian's emotional expressiveness and Curtis's measured pragmatism is not a conflict — it's a marriage. It just looks different under pressure.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">His Tension</div>
+        <div class="char-tension">
+          <div class="char-tension-text">"His pragmatism can read as coldness to people who don't know him well — including, sometimes, the cameras. The show's job is to reveal what's underneath."</div>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">The Surrogacy Question — From Curtis's Perspective</div>
+        <div class="char-section-text">
+          For Curtis, the surrogacy conversation isn't about whether they want another child. <strong>It's about whether they can sustain what they already have while adding something this large.</strong> His hesitation is not a rejection — it's a request for a plan. The cameras will catch him trying to find one.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Season 1 Arc</div>
+        <div class="char-arc-bar">
+          <div class="char-arc-label"><span>Episode 1: The obstacle</span><span>Episode 8: The foundation</span></div>
+          <div class="char-arc-track"><div class="char-arc-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="char-section-text" style="margin-top: 12px;">
+          Curtis begins the season as the obstacle and ends it as the foundation. The audience's understanding of him shifts as the cameras catch him in unguarded moments — where his love for his husband and his terror of losing what they've built are equally visible and equally real.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+  <div class="page-num">05</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 6 — CHARACTER: MOLOKO
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="char-page">
+    <div class="char-sidebar">
+      <div class="char-sidebar-accent" style="background: linear-gradient(90deg, #6B4C3B, transparent);"></div>
+      <div>
+        <div class="char-role-tag" style="background: #6B4C3B;">The Anchor</div>
+        <div class="char-name">Moloko</div>
+        <div class="char-archetype">"She carries the weight of the season."</div>
+        <div class="char-tags">
+          <div class="char-tag">Confident · Grounded · Culturally Rooted</div>
+          <div class="char-tag">Black South African</div>
+          <div class="char-tag">Already a mother</div>
+          <div class="char-tag">The show's moral center</div>
+        </div>
+      </div>
+      <!-- Photo placeholder — deep earth, ubuntu warmth -->
+      <div class="char-photo-placeholder">
+        <div class="char-photo-inner" style="background: linear-gradient(160deg, #0E0A06 0%, #1C1008 40%, #140C06 70%, #090604 100%);">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 40% 40%, rgba(107,76,59,0.35) 0%, transparent 65%);"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 65% 70%, rgba(184,90,46,0.12) 0%, transparent 55%);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(0deg,rgba(6,4,2,0.85) 0%,transparent 100%);"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+            <div style="width:88px;height:88px;border-radius:50%;border:1px solid rgba(107,76,59,0.3);display:flex;align-items:center;justify-content:center;">
+              <div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(107,76,59,0.18);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="char-photo-label">Cast Photo · TBD</div>
+      </div>
+      <div class="char-number">03</div>
+    </div>
+
+    <div class="char-main">
+      <div class="char-section">
+        <div class="char-section-label">Who She Is</div>
+        <div class="char-section-text">
+          Moloko doesn't perform for anyone. She's already done the hardest things in life — and she has the receipts. Her South African identity is inseparable from her sense of self. <strong>Ubuntu</strong> — the Southern African philosophy that translates as "I am because we are" — is not a concept she recites. It's the operating system she runs on.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">The South African Cultural Lens</div>
+        <div class="char-section-text">
+          In many South African cultural traditions, the act of bearing a child carries profound spiritual and familial weight — it is not simply a biological transaction. There are questions, unspoken but present, about what this means for her lineage, her body, her standing in her own family's eyes. <strong>The show doesn't lecture about this. It watches her live it.</strong>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Her Tension</div>
+        <div class="char-tension">
+          <div class="char-tension-text">"How do you hold your own family's needs, your cultural identity, and your loyalty to a friendship — all at the same time?"</div>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Her Children — The First Consideration</div>
+        <div class="char-section-text">
+          Moloko's decision about the surrogacy isn't just about Christian and Curtis. It's about what her children would understand about what their mother did — and why. That conversation, on camera, is unlike anything unscripted television has produced.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Season 1 Arc</div>
+        <div class="char-arc-bar">
+          <div class="char-arc-label"><span>Episode 1: Supporting presence</span><span>Episode 8: The show's moral center</span></div>
+          <div class="char-arc-track"><div class="char-arc-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="char-section-text" style="margin-top: 12px;">
+          Moloko's decision — whatever it is — is the most significant act of the season. Her "yes" or "no" is the central dramatic question. The audience will have earned the right to understand it.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+  <div class="page-num">06</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 7 — CHARACTER: HAILE
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="char-page">
+    <div class="char-sidebar">
+      <div class="char-sidebar-accent" style="background: linear-gradient(90deg, #C9A84C, #B85A2E, transparent);"></div>
+      <div>
+        <div class="char-role-tag" style="background: linear-gradient(90deg, var(--gold-dark), var(--terra));">The North Star</div>
+        <div class="char-name">Haile</div>
+        <div class="char-archetype">"She sees the board before anyone else counts the pieces."</div>
+        <div class="char-tags">
+          <div class="char-tag">Calm · Perceptive · Strategically Intelligent</div>
+          <div class="char-tag">Black American · Los Angeles + Michigan</div>
+          <div class="char-tag">The group's connective tissue</div>
+          <div class="char-tag">The audience's eye</div>
+        </div>
+      </div>
+      <!-- Photo placeholder — gold + terra duality, bicoastal -->
+      <div class="char-photo-placeholder">
+        <div class="char-photo-inner" style="background: linear-gradient(160deg, #0E0C08 0%, #181208 40%, #140E08 70%, #0A0806 100%);">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 65% at 35% 35%, rgba(201,168,76,0.14) 0%, transparent 55%);"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 70% 65%, rgba(184,90,46,0.14) 0%, transparent 55%);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(0deg,rgba(6,5,3,0.85) 0%,transparent 100%);"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(184,90,46,0.08));border:1px solid rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;">
+            <div style="width:60px;height:60px;border-radius:50%;border:1px solid rgba(184,90,46,0.12);"></div>
+          </div>
+        </div>
+        <div class="char-photo-label">Cast Photo · TBD</div>
+      </div>
+      <div class="char-number">04</div>
+    </div>
+
+    <div class="char-main">
+      <div class="char-section">
+        <div class="char-section-label">Who She Is</div>
+        <div class="char-section-text">
+          Haile is not the loudest person in the room — but she's the one everyone looks at when the conversation gets complicated. She sees what's coming before it arrives. She understands group dynamics the way a chess player understands the board. Her perceptiveness is a gift that sometimes feels like a burden.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Her Background</div>
+        <div class="char-section-text">
+          Raised between Los Angeles and Michigan, Haile carries both coasts in her. <strong>LA gave her cultural fluency, access, and the ability to read a room full of different kinds of people instantly. Michigan gave her groundedness, directness, and the ability to cut through performance to find the truth.</strong> She moves between the two with ease — which is, in retrospect, exactly what this friend group needs.
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Her Role</div>
+        <div class="char-tension">
+          <div class="char-tension-text">"She can hold space for Moloko's South African perspective, meet Christian in his emotional language, and translate it all back to Curtis without anyone feeling talked past."</div>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">The Household Experiment</div>
+        <div class="char-section-text">
+          Haile's brief foray into a more formalized support role in Christian and Curtis's household isn't a failure — it's a lesson. She learns where her limits are. She learns what friendship can hold and what it can't. <strong>She comes out of it with more clarity, not less.</strong>
+        </div>
+      </div>
+
+      <div class="char-section">
+        <div class="char-section-label">Season 1 Arc</div>
+        <div class="char-arc-bar">
+          <div class="char-arc-label"><span>Episode 1: Supporting voice</span><span>Episode 8: The audience's anchor</span></div>
+          <div class="char-arc-track"><div class="char-arc-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="char-section-text" style="margin-top: 12px;">
+          Haile's arc is quieter than the others — but it's the one that resonates longest. She is the character the audience most wants to be. Ultimately, she becomes the show's emotional anchor.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+  <div class="page-num">07</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 8 — SEASON 1 ARC (Episodes 1–4)
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header" style="margin-bottom: 28px;">
+      <span class="t-label">Season 1 · 8 Episodes</span>
+      <h2 class="t-title">The Arc</h2>
+      <p>Each episode is structured around a decision, a revelation, or a reckoning. The surrogacy question is the spine — but every episode deepens the friendship architecture beneath it.</p>
+    </div>
+
+    <div class="ep-grid" style="gap: 16px;">
+      <div class="ep-card">
+        <div class="ep-num">Episode 01</div>
+        <div class="ep-title">"The Circle"</div>
+        <div class="ep-subtitle">Establish the world. Establish the stakes.</div>
+        <div class="ep-body">We enter through a group gathering — the kind of effortless social ritual that masks how precisely curated it is. By the end, Christian makes a comment, half-joke, half-genuine, about wanting another child. The table reacts. The season begins.</div>
+        <div class="ep-focus">Tone: Warm · A little too perfect</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 02</div>
+        <div class="ep-title">"The Idea"</div>
+        <div class="ep-subtitle">From casual comment to real conversation.</div>
+        <div class="ep-body">Christian brings surrogacy into an intentional conversation with Curtis. What was a throwaway comment is now on the table — and Curtis's reaction reveals everything. Meanwhile, Moloko hears about it. Her response is not what anyone expected.</div>
+        <div class="ep-focus">Tone: First real tension enters</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 03</div>
+        <div class="ep-title">"What We Carry"</div>
+        <div class="ep-subtitle">Cultural weight surfaces.</div>
+        <div class="ep-body">As the surrogacy conversation deepens, the cultural dimensions become impossible to ignore. Moloko's South African framework — what it means to carry a child — shapes every instinct she has. Christian's vision of family and Curtis's vision of legacy collide for the first time.</div>
+        <div class="ep-focus">Tone: Deeper · More personal</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 04</div>
+        <div class="ep-title">"Structured Life"</div>
+        <div class="ep-subtitle">What it takes to hold all of this together.</div>
+        <div class="ep-body">The reality of the household comes into focus — what it costs to maintain the lifestyle, the structure, the schedule. Haile begins informally helping. Curtis's need for control becomes clearer. The question is: can their systems handle more?</div>
+        <div class="ep-focus">Tone: Grounded · Slightly comedic</div>
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">08</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 9 — SEASON 1 ARC (Episodes 5–8)
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header" style="margin-bottom: 28px;">
+      <span class="t-label">Season 1 · Episodes 5–8</span>
+      <h2 class="t-title">The Reckoning</h2>
+      <p>The back half of the season is where the question becomes unavoidable — and every character has to decide what they're willing to risk for what they love.</p>
+    </div>
+
+    <div class="ep-grid" style="gap: 16px;">
+      <div class="ep-card">
+        <div class="ep-num">Episode 05</div>
+        <div class="ep-title">"The Offer"</div>
+        <div class="ep-subtitle">Someone says it out loud.</div>
+        <div class="ep-body">The question is asked directly, in private, in an emotional moment: Moloko, would you consider being our surrogate? What follows is not an answer — it's a reckoning. For everyone. Meanwhile, Haile's informal role starts to formalize — and she begins to feel its weight.</div>
+        <div class="ep-focus">Tone: The episode the season has been building toward</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 06</div>
+        <div class="ep-title">"Her Body, Her Terms"</div>
+        <div class="ep-subtitle">This episode belongs to Moloko.</div>
+        <div class="ep-body">We follow Moloko through the emotional, cultural, and family-level conversations she's having — with her own children, her own support system, her own mirror. She is not a plot device. She is a full person with a full life, and this episode makes that undeniable.</div>
+        <div class="ep-focus">Tone: The most intimate episode of the season</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 07</div>
+        <div class="ep-title">"The Line"</div>
+        <div class="ep-subtitle">Boundaries become necessary.</div>
+        <div class="ep-body">Haile steps back from the formalized role — and the conversation about why reveals something important: love does not equal unlimited availability. The surrogacy conversation reaches its most complicated point. Legal, medical, and emotional considerations collide.</div>
+        <div class="ep-focus">Tone: Adult · Direct · Clear-eyed</div>
+      </div>
+      <div class="ep-card">
+        <div class="ep-num">Episode 08</div>
+        <div class="ep-title">"Something Like Family"</div>
+        <div class="ep-subtitle">Every thread reaches its conclusion.</div>
+        <div class="ep-body">The group reconvenes — not for confrontation, but for a real conversation about what they've learned, what they've decided, and what comes next. The surrogacy decision is made. The friendship emerges differently than it entered. And stronger for it.</div>
+        <div class="ep-focus">Tone: Earned · Warm · Forward-looking</div>
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">09</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 9 — THEMES
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header">
+      <span class="t-label">What the Show Is Really About</span>
+      <h2 class="t-title">Core Themes</h2>
+    </div>
+
+    <div class="theme-list">
+      <div class="theme-item">
+        <div class="theme-num">01</div>
+        <div class="theme-content">
+          <div class="theme-title">Modern Family Building</div>
+          <div class="theme-body">Surrogacy as a real, complex, emotionally loaded decision — not a storyline device. What does it mean to ask a friend to carry your child? What does it mean to say yes? What does it mean to say no, and still love someone after?</div>
+        </div>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">02</div>
+        <div class="theme-content">
+          <div class="theme-title">The Architecture of Friendship</div>
+          <div class="theme-body">Close friendship, at its highest level, requires negotiation. Roles, limits, availability, expectation — friendships are their own kind of contract, and this show explores what happens when those contracts are tested by something irreversible.</div>
+        </div>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">03</div>
+        <div class="theme-content">
+          <div class="theme-title">Culture as Character</div>
+          <div class="theme-body">South African ubuntu and Black American pragmatism in the same room — shaping how characters understand family, obligation, tradition, and identity. Not explained. Witnessed. This is multicultural not as a casting note, but as a lived reality.</div>
+        </div>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">04</div>
+        <div class="theme-content">
+          <div class="theme-title">Emotional Intelligence as Power</div>
+          <div class="theme-body">In a media landscape full of reactive personalities, these characters are highly emotionally intelligent — and that becomes its own form of drama. Watching people who are genuinely trying to get it right is more compelling than watching people who aren't trying at all.</div>
+        </div>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">05</div>
+        <div class="theme-content">
+          <div class="theme-title">The Gap Between the Life You Show and the Life You Live</div>
+          <div class="theme-body">Every character has built something beautiful. The tension comes from maintaining it — and deciding whether to risk it for something even bigger. The aspirational exterior is real. So is what it costs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">09</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 10 — COMPETITIVE LANDSCAPE
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header">
+      <span class="t-label">Market Intelligence</span>
+      <h2 class="t-title">Competitive Landscape</h2>
+    </div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Show</th>
+          <th style="width: 14%;">Network</th>
+          <th style="width: 30%;">What We Share</th>
+          <th style="width: 34%;">How We're Different</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="badge">Bravo/MTV</div><br>Real Friends of WeHo</td>
+          <td>MTV</td>
+          <td>Gay cast, friend group, lifestyle</td>
+          <td>Theirs failed because the cast weren't actually friends. We have real relationships. Surrogacy is the narrative engine WeHo never had.</td>
+        </tr>
+        <tr>
+          <td><div class="badge">HBO Max</div><br>Back to the Frontier</td>
+          <td>HBO Max</td>
+          <td>Gay dads, family building, lifestyle</td>
+          <td>We don't need a wilderness setting to find drama. The frontier is the friendship.</td>
+        </tr>
+        <tr>
+          <td><div class="badge">Discovery</div><br>90 Day Fiancé: Kenny & Armando</td>
+          <td>TLC/Discovery</td>
+          <td>Gay male couple, surrogacy journey</td>
+          <td>Our format is premium lifestyle, not franchise procedural. Different audience, different experience.</td>
+        </tr>
+        <tr>
+          <td><div class="badge">Netflix</div><br>The Ultimatum: Queer Love S2</td>
+          <td>Netflix</td>
+          <td>Queer relationship stakes, real decisions</td>
+          <td>We're relationship-sustained across 8 episodes, not elimination-based competition. Deeper character investment.</td>
+        </tr>
+        <tr>
+          <td><div class="badge">Bravo</div><br>The Valley · Summer House</td>
+          <td>Bravo/Peacock</td>
+          <td>Affluent friend group, life milestone stakes</td>
+          <td>We're those shows with a LGBTQ+-centered cast, surrogacy as the engine, and genuine multicultural identity at the core.</td>
+        </tr>
+        <tr>
+          <td><div class="badge">OWN</div><br>Love & Marriage: Huntsville</td>
+          <td>OWN</td>
+          <td>Black affluent couples, real decisions</td>
+          <td>We add gay male lead couple and South African cultural dimension — expanding the frame without abandoning the audience.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="white-space-box">
+      <div class="white-space-label">The Confirmed White Space</div>
+      <div class="white-space-text">"No US unscripted series has ever centered a gay couple going through surrogacy with a close friend in real time, on any major platform. We are building the format the market is ready for."</div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">10</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 11 — NETWORK TARGETS + PITCH PACKAGE
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header">
+      <span class="t-label">Distribution Strategy</span>
+      <h2 class="t-title">Network Targets</h2>
+    </div>
+
+    <div class="network-tier">
+      <div class="network-tier-label">Tier 1 — Primary Targets</div>
+      <div class="network-grid">
+        <div class="network-card primary">
+          <div class="network-name">Bravo / Peacock</div>
+          <div class="network-reason">Owns 7 of top 10 cable reality series. The Valley S2 (3.1M viewers, 14-year record) and Summer House S10 (record high) confirm the format works. Persian Style launch (Jan 2026) = active multicultural expansion. Fan demand for more diverse casting is documented.</div>
+          <div class="network-hook">"Summer House meets The Valley — but with stakes that actually matter. The show Real Friends of WeHo was trying to be."</div>
+        </div>
+        <div class="network-card primary">
+          <div class="network-name">HBO Max</div>
+          <div class="network-reason">Greenlit Back to the Frontier (gay dads), Nuclear Family (LGBTQ+ family documentary). Proven appetite for premium, emotionally driven LGBTQ+ family content. 6–8 episode format with elevated production is their unscripted sweet spot.</div>
+          <div class="network-hook">"Back to the Frontier without the wilderness. The real frontier is the friendship."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="network-tier">
+      <div class="network-tier-label">Tier 2 — Strong Alternatives</div>
+      <div class="network-grid">
+        <div class="network-card">
+          <div class="network-name">OWN</div>
+          <div class="network-reason">Love & Marriage franchise proves the Black affluent relationship format. No LGBTQ+ show currently in lineup — gap confirmed. Core audience (Black women 25–54) is perfectly positioned for this content.</div>
+          <div class="network-hook">"Love and Marriage meets a new kind of family story."</div>
+        </div>
+        <div class="network-card">
+          <div class="network-name">Netflix</div>
+          <div class="network-reason">Queer Eye ending (Season 10 final) leaves an audience seeking replacement. Renewed The Boyfriend (gay male reality) for S2. Caution: harder first meeting — requires production company relationship or agent.</div>
+          <div class="network-hook">"What Queer Eye couldn't show you — what it costs to build a family."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">11</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 12 — BEYOND SEASON 1
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="section-header" style="margin-bottom: 32px;">
+      <span class="t-label">Expansion</span>
+      <h2 class="t-title">Beyond Season 1</h2>
+      <p>Season 1 ends with a decision made and a friendship recalibrated. The format is built to grow — in depth, in cast, and in geography.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; align-items: start;">
+      <div class="season2-box" style="margin-top: 0; padding: 32px 36px;">
+        <div class="season2-title">Season 2 — Path A</div>
+        <div class="season2-body" style="margin-bottom: 16px;">
+          <strong style="color: var(--ivory);">If Moloko proceeds:</strong> The pregnancy. The cultural rituals. The couple's preparation. The friendship during the most intimate experience of all their lives. The show becomes something that has never existed on American television.
+        </div>
+        <div class="season2-body">What it looks like to choose each other even when the stakes are biological. A season about love expressed through sacrifice — and whether that kind of love changes everything.</div>
+      </div>
+      <div class="season2-box" style="margin-top: 0; border-left-color: var(--terra); padding: 32px 36px;">
+        <div class="season2-title">Season 2 — Path B</div>
+        <div class="season2-body" style="margin-bottom: 16px;">
+          <strong style="color: var(--ivory);">If she doesn't:</strong> The group navigates what that decision meant. What the couple does next. How a friendship holds — or bends — after saying no to something that mattered that much.
+        </div>
+        <div class="season2-body">Not every no is a betrayal. This path explores how relationships absorb disappointment — and what it means to stay when you could leave.</div>
+      </div>
+    </div>
+
+    <div class="season2-box" style="margin-top: 0; margin-bottom: 24px; border-left-color: var(--gold); padding: 32px 36px;">
+      <div class="season2-title">Franchise Potential</div>
+      <div class="season2-body">
+        The community format is replicable. <strong style="color: var(--ivory);">Atlanta. Houston. Miami.</strong> Different cities, same cultural intelligence, new casts — built on the same emotional framework. Something Like Family is not a one-city show. It's a model for how premium unscripted can travel. The IP is the format, not the cast. The cast is the proof of concept.
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--rule); padding: 32px 28px; min-height: 160px;">
+        <div style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; font-family: 'Inter', sans-serif;">Season 1</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ivory); margin-bottom: 10px;">The Question</div>
+        <div style="font-size: 0.85rem; color: var(--ivory-3); line-height: 1.65; font-family: 'Inter', sans-serif; font-weight: 300;">Will Moloko carry their child? The friendship is tested. The answer redefines everything.</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--rule); padding: 32px 28px; min-height: 160px;">
+        <div style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; font-family: 'Inter', sans-serif;">Season 2</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ivory); margin-bottom: 10px;">The Answer</div>
+        <div style="font-size: 0.85rem; color: var(--ivory-3); line-height: 1.65; font-family: 'Inter', sans-serif; font-weight: 300;">Whatever was decided — now everyone lives with it. New community members. New complications. Earned trust tested again.</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--rule); padding: 32px 28px; min-height: 160px;">
+        <div style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; font-family: 'Inter', sans-serif;">Season 3+</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ivory); margin-bottom: 10px;">The Expansion</div>
+        <div style="font-size: 0.85rem; color: var(--ivory-3); line-height: 1.65; font-family: 'Inter', sans-serif; font-weight: 300;">New cities. New communities. The format scales. The cultural intelligence travels. The brand becomes a franchise.</div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--rule); padding-top: 32px; text-align: center;">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--ivory-2); line-height: 1.7; max-width: 580px; margin: 0 auto;">
+        "The question is never just about the baby. It's about whether friendship can hold the weight of something that permanent — and what we become on the other side of the answer."
+      </div>
+    </div>
+
+    <div class="watermark">SOMETHING LIKE FAMILY · BE MORE CREATIVE LLC</div>
+    <div class="page-num">12</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 13 — BACK COVER
+═══════════════════════════════════════════════════════════ -->
+<div class="page back-cover">
+  <div class="corner-tl"></div>
+  <div class="corner-br" style="bottom: 80px;"></div>
+
+  <!-- TOP: logo pinned -->
+  <div style="position: absolute; top: 72px; left: 0; right: 0;">
+    <div class="back-logo">BE MORE CREATIVE LLC</div>
+    <div class="back-co" style="margin-bottom: 0;">Los Angeles · Atlanta</div>
+  </div>
+
+  <!-- CENTER: hero title truly centered on page -->
+  <div style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%);">
+    <div class="t-display back-title-main">Something</div>
+    <div class="t-display back-title-gold" style="margin-bottom: 0;">Like Family</div>
+  </div>
+
+  <!-- BOTTOM: rule + contact + copyright pinned -->
+  <div style="position: absolute; bottom: 60px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center;">
+    <div class="back-rule" style="margin: 0 auto 28px;"></div>
+    <div class="back-contact" style="margin-bottom: 20px;">
+      <div class="back-contact-line">Brandon Morson</div>
+      <div class="back-contact-line"><a>b1morson@gmail.com</a> &nbsp;·&nbsp; 248-971-9532</div>
+      <div class="back-handle">@iambemore &nbsp;·&nbsp; BeMoreCreative.media</div>
+    </div>
+    <div class="back-copyright" style="position: static;">© 2026 Be More Creative LLC · Confidential &amp; Proprietary</div>
+  </div>
+
+  <div class="back-cover-line"></div>
+</div>
+
+</body>
+</html>
